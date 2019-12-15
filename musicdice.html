@@ -1,0 +1,272 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Music Dice</title>
+<style>
+	body { 
+		background: #efefef;
+		font-family: sans-serif;
+		color: #333;
+		font-size: 1em;
+	}
+	input,button { border-radius: 0 border: 1px; }
+	h4 { margin: 5px; }
+
+	.container { max-width: 100%; width: 768px; margin-left: auto; margin-right: auto;}
+	.row { display: flex; flex-wrap: wrap; }
+	.row:after { display: block; content:""; clear: both; float: none; }
+	.col { float: left; max-width: 100%; }	
+	.col { border: 2px solid #fff; box-sizing: border-box; padding: 5px; background: #efefef; }
+	.text-center { text-align: center; }
+	.text-right { text-align: right; }
+	.center { margin-left: auto; margin-right: auto; }
+
+	@media (min-width: 768px){		
+		.lg-1-3 { width: calc(100%/3); }
+		.lg-1-2 { width: calc(100%/2); }
+		.lg-hide { display: none; }
+	}
+	@media (max-width: 767px){
+		.md-1-2 { width: calc(100%/2); }
+		.md-1 { width: 100%; }
+		.md-hide { display: none; }
+		.text-md-center { text-align: center; }
+	}
+	@media (max-width: 424px){
+		.sm-1 { width: 100%; }
+		.sm-hide { display: none; }
+	}
+</style>
+
+</head>
+
+<body>
+
+<div class="container" style="background: #fff;">
+	<div class="row text-center">
+		<div class="col" style="background: #ccf; width: 100%"><h1>Music Dice</h1></div>
+	</div>
+
+	<div class="text-center">
+		<div class="row">
+			<div class="col lg-1-3 md-1-2 sm-1" style="background: #cfa">
+				<h4>Tempo</h4>
+			</div>
+			<div class="col lg-hide md-1-2 sm-1"><span data-param="tempo">-</span></div>
+			<div class="col lg-1-3 md-1-2 sm-1" style="background: #cfa">
+				<h4>Time Signature</h4>
+			</div>
+			<div class="col lg-hide md-1-2 sm-1" ><span data-param="timesig">-</span></div>
+			<div class="col lg-1-3 md-1-2 sm-1" style="background: #cfa">
+				<h4>Mood</h4>
+			</div>
+			<div class="col lg-hide md-1-2 sm-1"><span data-param="mood">-</span></div>
+		</div>
+		<div class="row">
+			<div class="col lg-1-3 md-hide sm-1"><span data-param="tempo">-</span></div>
+			<div class="col lg-1-3 md-hide sm-1" ><span data-param="timesig">-</span></div>
+			<div class="col lg-1-3 md-hide sm-1"><span data-param="mood">-</span></div>
+		</div>
+	</div>
+
+	<div class="text-center">
+		<div class="row">
+			<div class="col" style="width: 100%; background: #cfa "><h4>Chords</h4></div>
+		</div>
+		<div class="row">
+			<div class="col" style="width: 100%; "><span data-param="chords">-</span></div>
+		</div>
+	</div>
+
+	<div>
+		<div class="row text-center">
+			<div class="col" style="width: calc(100%); background: #cfa"><h4>Layers</h4></div>
+			<div class="col lg-1-3 md-hide"></div>
+			<div class="col lg-1-3 md-hide" style="background: #ff8">Instrument</div>
+			<div class="col lg-1-3 md-hide" style="background: #ff8">Effect</div>
+
+		</div>
+		<div class="row">
+			<div class="col lg-1-3 md-1 text-md-center" style=" background: #fca"><strong>Percussion</strong></div>
+			<div class="col md-1-2 lg-hide md-block" style="background: #ff8">Instrument</div>
+			<div class="col lg-1-3 md-1-2"><span data-param="percs">-</span></div>
+			<div class="col md-1-2 lg-hide md-block" style="background: #ff8">Effect</div>
+			<div class="col lg-1-3 md-1-2"><span data-param="percs-effect">-</span></div>
+		</div>
+		<div class="row">
+			<div class="col lg-1-3 md-1 text-md-center" style=" background: #fca"><strong>Bass</strong></div>
+			<div class="col md-1-2 lg-hide md-block" style="background: #ff8">Instrument</div>
+			<div class="col lg-1-3 md-1-2"><span data-param="bass">-</span></div>
+			<div class="col md-1-2 lg-hide md-block" style="background: #ff8">Effect</div>
+			<div class="col lg-1-3 md-1-2"><span data-param="bass-effect">-</span></div>
+		</div>
+		<div class="row">
+			<div class="col lg-1-3 md-1 text-md-center" style=" background: #fca"><strong>Harmony</strong></div>
+			<div class="col md-1-2 lg-hide md-block" style="background: #ff8">Instrument</div>
+			<div class="col lg-1-3 md-1-2"><span data-param="harmony">-</span></div>
+			<div class="col md-1-2 lg-hide md-block" style="background: #ff8">Effect</div>
+			<div class="col lg-1-3 md-1-2"><span data-param="harmony-effect">-</span></div>
+		</div>
+		<div class="row">
+			<div class="col lg-1-3 md-1 text-md-center" style=" background: #fca"><strong>Main Melody</strong></div>
+			<div class="col md-1-2 lg-hide md-block" style="background: #ff8">Instrument</div>
+			<div class="col lg-1-3 md-1-2"><span data-param="melody">-</span></div>
+			<div class="col md-1-2 lg-hide md-block" style="background: #ff8">Effect</div>
+			<div class="col lg-1-3 md-1-2"><span data-param="melody-effect">-</span></div>
+		</div>
+		<div class="row">
+			<div class="col lg-1-3 md-1 text-md-center" style=" background: #fca"><strong>Extra Layer 1</strong></div>
+			<div class="col md-1-2 lg-hide md-block" style="background: #ff8">Instrument</div>
+			<div class="col lg-1-3 md-1-2"><span data-param="extra1">-</span></div>
+			<div class="col md-1-2 lg-hide md-block" style="background: #ff8">Effect</div>
+			<div class="col lg-1-3 md-1-2"><span data-param="extra1-effect">-</span></div>
+		</div>
+		<div class="row">
+			<div class="col lg-1-3 md-1 text-md-center" style="background: #fca"><strong>Extra Layer 2</strong></div>
+			<div class="col md-1-2 lg-hide md-block" style="background: #ff8">Instrument</div>
+			<div class="col lg-1-3 md-1-2"><span data-param="extra2">-</span></div>
+			<div class="col md-1-2 lg-hide md-block" style="background: #ff8">Effect</div>
+			<div class="col lg-1-3 md-1-2"><span data-param="extra2-effect">-</span></div>
+		</div>
+	</div>
+
+	<div class="row text-center">
+		<div class="col" style="width: 100%; padding: 20px"><button onclick="randomize()"><h4>Randomize!</h4></button></div>
+	</div>
+</div>
+
+<div>
+<p class="text-center">
+
+</p>
+</div>
+
+
+<script>
+var timesigtop = [2, 3, 4, 5, 6, 7, 9, 11, 13, 15, 17, 19, 23];
+var timesigbot = [4, 8, 16];
+
+var chords = ["C", "D", "E", "F", "G", "A", "B", "C#", "Eb", "F#", "G#", "Bb"];
+var chordvoice = ["maj", "min", "maj7", "min7", "dom7", "sus", "9", "aug", "dim"];
+
+var mood = [
+	"Dark",
+	"Happy",
+	"Spooky",
+	"Weird",
+	"Trippy",
+	"Scary",
+	"Groovy",
+	"Dreamy",
+	"Post-Apocalyptic",
+	"Funny",
+	"Angry",
+	"Fantasy",
+	"Climactic",
+	"Evil",
+	"Angelic",
+	"Heavenly",
+	"Glorious",
+	"Depressing",
+	"Hopeful",
+	"Cold",
+	"Busy"
+];
+
+var percussion = [
+	"Acoustic Drums",
+	"Electronic",
+	"Ethnic Percussion",
+	"Glitchy Samples",
+	"Random Objects",
+	"None"
+];
+
+var instrument = [
+	"Piano",
+	"Electric Guitar",
+	"Acoustic Guitar",
+	"Rhodes",
+	"Strings",
+	"Lute",
+	"Brass",
+	"Woodwind",
+	"Xylophone",
+	"Electric Bass",
+	"Upright Bass",
+	"Synth",
+	"Hammond Organ",
+	"Mellotron: Strings",
+	"Mellotron: Flute",
+	"Mellotron: Choir",
+	"None"
+];
+
+var effect = [
+	"Distortion",
+	"Delay",
+	"Reverb",
+	"Vibrato",
+	"Tremolo",
+	"Reverse",
+	"Glitch",
+	"Lo-fi",
+	"Phaser",
+	"None"
+];
+function randomize(){
+
+	var timesig = timesigtop[Math.floor(Math.random()*timesigtop.length)] + '/' + timesigbot[Math.floor(Math.random()*timesigbot.length)];
+	document.querySelectorAll('[data-param="timesig"]').forEach( function(item) {
+		item.innerHTML = timesig;
+	}); 
+	var tempo = Math.floor((Math.random()*300) + 50) + "bpm";
+	document.querySelectorAll('[data-param="tempo"]').forEach( function(item) {
+		item.innerHTML = tempo;
+	}); 
+	var themood = mood[Math.floor(Math.random()*mood.length)];
+	document.querySelectorAll('[data-param="mood"]').forEach( function(item) {
+		item.innerHTML = themood;
+	}); 
+
+	var chordprog = new Array();
+	for(i=0; i < Math.floor((Math.random()*4) + 1); i++){
+		chordprog.push(chords[Math.floor(Math.random()*chords.length)] + chordvoice[Math.floor(Math.random()*chordvoice.length)] );
+	}
+	document.querySelectorAll('[data-param="chords"]')[0].innerHTML = '';
+	for(i=0; i < chordprog.length; i++){
+		document.querySelectorAll('[data-param="chords"]')[0].innerHTML += chordprog[i];
+		if(i<chordprog.length -1) document.querySelectorAll('[data-param="chords"]')[0].innerHTML += " - ";
+	}
+
+	var instrvar = percussion[Math.floor(Math.random()*percussion.length)];
+	document.querySelectorAll('[data-param="percs"]')[0].innerHTML = instrvar;
+	document.querySelectorAll('[data-param="percs-effect"]')[0].innerHTML = (instrvar == "None" ? "None" : effect[Math.floor(Math.random()*effect.length)] );
+
+	instrvar = instrument[Math.floor(Math.random()*instrument.length)];
+	document.querySelectorAll('[data-param="bass"]')[0].innerHTML = instrvar;
+	document.querySelectorAll('[data-param="bass-effect"]')[0].innerHTML = (instrvar == "None" ? "None" : effect[Math.floor(Math.random()*effect.length)] );
+
+	instrvar = instrument[Math.floor(Math.random()*instrument.length)];
+	document.querySelectorAll('[data-param="harmony"]')[0].innerHTML = instrvar;
+	document.querySelectorAll('[data-param="harmony-effect"]')[0].innerHTML = (instrvar == "None" ? "None" : effect[Math.floor(Math.random()*effect.length)] );
+
+	instrvar = instrument[Math.floor(Math.random()*instrument.length)];
+	document.querySelectorAll('[data-param="melody"]')[0].innerHTML = instrvar;
+	document.querySelectorAll('[data-param="melody-effect"]')[0].innerHTML = (instrvar == "None" ? "None" : effect[Math.floor(Math.random()*effect.length)] );
+
+	instrvar = instrument[Math.floor(Math.random()*instrument.length)];
+	document.querySelectorAll('[data-param="extra1"]')[0].innerHTML = instrvar;
+	document.querySelectorAll('[data-param="extra1-effect"]')[0].innerHTML = (instrvar == "None" ? "None" : effect[Math.floor(Math.random()*effect.length)] );
+
+	instrvar = instrument[Math.floor(Math.random()*instrument.length)];
+	document.querySelectorAll('[data-param="extra2"]')[0].innerHTML = instrvar;
+	document.querySelectorAll('[data-param="extra2-effect"]')[0].innerHTML = (instrvar == "None" ? "None" : effect[Math.floor(Math.random()*effect.length)] );
+
+}
+</script>
+
+</body>
+</html>
